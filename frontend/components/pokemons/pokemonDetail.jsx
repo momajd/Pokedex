@@ -27,16 +27,16 @@ var PokemonDetail = React.createClass({
     var moves;
 
     if(Object.keys(poke).length !== 0){
-      moves = poke.moves.map(function(move){
-        return <li>{move}</li>;
+      moves = poke.moves.map(function(move, idx){
+        return <li key={idx}>{move}</li>;
       });
 
       details =  <div className="detail">
                   {poke.name}<br />
-                  {poke.attack}<br />
-                  {poke.defense}<br />
-                  {poke.poke_type}<br />
-                <ul>Moves
+                  Attack: {poke.attack}<br />
+                  Defense: {poke.defense}<br />
+                  Type: {poke.poke_type}<br />
+                  <ul>Moves:
                     {moves}<br />
                   </ul>
                   <img src={poke.image_url}></img><br />
